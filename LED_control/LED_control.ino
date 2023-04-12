@@ -58,21 +58,21 @@ void loop() {
   else if (sensor4State == HIGH) {
     smokeSensor5Triggered();
     StaticJsonDocument<64> json;
-    json["sensor"] = "3";
+    json["sensor"] = "4";
     serializeJson(json, Serial);
     Serial.println();
   }
   else if (sensor5State == HIGH) {
     smokeSensor5Triggered();
     StaticJsonDocument<64> json;
-    json["sensor"] = "4";
+    json["sensor"] = "5";
     serializeJson(json, Serial);
     Serial.println();
   }
   else if (sensor6State == HIGH) {
     smokeSensor6Triggered();
     StaticJsonDocument<64> json;
-    json["sensor"] = "5";
+    json["sensor"] = "6";
     serializeJson(json, Serial);
     Serial.println();
   }
@@ -81,5 +81,3 @@ void loop() {
   
   delay(100); // Wait for 100 milliseconds before repeating the loop
 }
-
-
