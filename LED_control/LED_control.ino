@@ -1,4 +1,5 @@
 #include <ArduinoJson.h>
+#include <TimeLib.h>
 #include "led_sequences.h"
 
 
@@ -23,6 +24,8 @@ void setup() {
   pinMode(SMOKE_SENSOR_6, INPUT);
   pixels.begin();
   Serial.begin(9600);
+  while (!Serial) {}
+  setTime(0); // set the initial time to midnight
 } 
 
 
@@ -38,6 +41,7 @@ void loop() {
     smokeSensor1Triggered();
     StaticJsonDocument<64> json;
     json["sensor"] = "1";
+    json["timestamp"] = now();
     serializeJson(json, Serial);
     Serial.println();
   }
@@ -45,6 +49,7 @@ void loop() {
     smokeSensor2Triggered();
     StaticJsonDocument<64> json;
     json["sensor"] = "2";
+    json["timestamp"] = now();
     serializeJson(json, Serial);
     Serial.println();
   }
@@ -52,6 +57,7 @@ void loop() {
     smokeSensor2Triggered();
     StaticJsonDocument<64> json;
     json["sensor"] = "3";
+    json["timestamp"] = now();
     serializeJson(json, Serial);
     Serial.println();
   }
@@ -59,6 +65,7 @@ void loop() {
     smokeSensor5Triggered();
     StaticJsonDocument<64> json;
     json["sensor"] = "4";
+    json["timestamp"] = now();
     serializeJson(json, Serial);
     Serial.println();
   }
@@ -66,6 +73,7 @@ void loop() {
     smokeSensor5Triggered();
     StaticJsonDocument<64> json;
     json["sensor"] = "5";
+    json["timestamp"] = now();
     serializeJson(json, Serial);
     Serial.println();
   }
@@ -73,6 +81,7 @@ void loop() {
     smokeSensor6Triggered();
     StaticJsonDocument<64> json;
     json["sensor"] = "6";
+    json["timestamp"] = now();
     serializeJson(json, Serial);
     Serial.println();
   }
