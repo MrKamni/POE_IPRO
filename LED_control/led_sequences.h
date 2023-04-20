@@ -23,6 +23,13 @@ void setPixel(int LED, char color) {
   }     
 }
 
+void NoSensorTriggered() {
+    for (int i=0; i<24; i++) {
+      setPixel(i, 'N');
+    }
+    pixels.show();
+}
+
 void smokeSensor1Triggered() {
     setPixel(0, 'R'); // Red
     setPixel(1, 'R'); // Red
